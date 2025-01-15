@@ -40,3 +40,11 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Tailwind CSS
+postcss.config.js
+tailwind.config.js
