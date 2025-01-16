@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-image: linear-gradient(to bottom, #000000, #4B4B4B);
+}/*# sourceMappingURL=styles.css.map */

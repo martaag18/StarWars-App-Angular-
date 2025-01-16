@@ -8,7 +8,7 @@
                 <div class="card-body">
                   <h3 class="card-title">{{ starship.name }}</h3>
                   <p>{{ starship.model }}</p>
-                  <button [routerLink]="['/starships-detail', starship.id]">See details</button>
+                  <button class="btn-sm p-1 hover:border border-primary rounded-md" [routerLink]="['/starships-detail', starship.id]">See details</button>
                 </div>
               </div>
               }
