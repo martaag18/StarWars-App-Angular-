@@ -1,51 +1,42 @@
-<!-- Navbar principal -->
+
 <nav class="bg-black text-stone-300 px-4 lg:px-8 py-4">
-
-  <!-- Sección superior: Íconos sociales, logo y botones de búsqueda/login -->
+  <!-- Social Icons, Logo, Login & Logout -->
   <div class="flex items-center justify-between">
-
-    <!-- Íconos sociales (se muestran solo en pantallas grandes) -->
+    <!-- Social Icons-->
     <div class="hidden lg:flex gap-4">
-        <a href="#" class="text-xl border border-transparent hover:border-primary rounded-md p-1" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="#" class="text-xl border border-transparent hover:border-primary rounded-md p-1" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-xl border border-transparent hover:border-primary rounded-md p-1" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" class="text-xl border border-transparent hover:border-primary rounded-md p-1" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" class="text-xl border border-transparent hover:border-primary rounded-md p-1" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
       <a href="#" class="text-xl border border-transparent hover:border-primary rounded-md p-1" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
       <a href="#" class="text-xl border border-transparent hover:border-primary rounded-md p-1" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-
-    <!-- Logo centrado -->
-    <div class="flex-1 flex justify-center"><app-logo></app-logo></div>
-
-    <!-- Botones de búsqueda y login (se muestran solo en pantallas grandes) -->
-    <div class="hidden lg:flex gap-4">
-        <a routerLink="/login" routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-black hover:border-primary px-4 py-2 rounded-lg cursor-pointer">LOG IN</a>
-        <a routerLink="/logout" routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-black hover:border-primary px-4 py-2 rounded-lg cursor-pointer">LOG OUT</a>
+    <!-- Logo -->
+    <div class="flex-1 flex justify-center">
+      <app-logo></app-logo>
     </div>
-
-    <!-- Menú hamburguesa (para pantallas pequeñas) -->
+    <!-- Login & Logout -->
+    <div class="hidden lg:flex gap-4">
+        <a routerLink="/login" target="_blank" routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-black hover:border-primary px-4 py-2 rounded-lg cursor-pointer">LOG IN</a>
+        <a routerLink="/signup" target="_blank"  routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-black hover:border-primary px-4 py-2 rounded-lg cursor-pointerls">LOG OUT</a>
+    </div>
+    <!-- Hamburguer menu -->
     <div class="lg:hidden dropdown dropdown-end">
       <label tabindex="0" class="btn btn-square btn-ghost"><i class="fas fa-bars"></i></label>
-      <!-- Menú desplegable -->
       <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral-800 rounded-box w-52">
-        <li><a routerLink="/" routerLinkActive="border-b-4 border-primary">HOME</a></li>
-        <li><a routerLink="/starships" routerLinkActive="border-b-4 border-primary">STARSHIPS</a></li>
-        <li><a routerLink="/login" routerLinkActive="border-b-4 border-primary"><i class="fas fa-user"></i> Log In</a></li>
-        <li><a routerLink="/logout" routerLinkActive="border-b-4 border-primary">Log Out</a></li>
+        <li><a routerLink="/" target="_blank" routerLinkActive="border-b-4 border-primary">HOME</a></li>
+        <li><a routerLink="/starships" target="_blank" routerLinkActive="border-b-4 border-primary">STARSHIPS</a></li>
+        <li><a routerLink="/login" target="_blank"  routerLinkActive="border-b-4 border-primary"><i class="fas fa-user"></i> Log In</a></li>
+        <li><a routerLink="/signup"target="_blank"  routerLinkActive="border-b-4 border-primary">Log Out</a></li>
       </ul>
     </div>
-
   </div>
-
-  <!-- Menú debajo del logo (HOME y STARSHIPS) -->
-  <div class="w-full flex justify-center mt-4">
+  <!-- (HOME y STARSHIPS) -->
+  <div class="flex justify-center mt-4">
     <ul class="menu menu-horizontal px-4 gap-8">
-      <!-- Botón HOME -->
-      <li><a routerLink="/" routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-neutral-600 hover:border-primary px-4 py-2">HOME</a></li>
-      <!-- Botón STARSHIPS -->
-      <li><a routerLink="/starships" routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-neutral-600 hover:border-primary px-4 py-2">STARSHIPS</a></li>
+      <a routerLink="/" target="_blank" routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-neutral-600 hover:border-primary px-4 py-2">HOME</a>
+      <a routerLink="/starships" target="_blank" routerLinkActive="border-b-4 border-primary" class="text-lg font-bold border border-neutral-600 hover:border-primary px-4 py-2">STARSHIPS</a>
     </ul>
   </div>
-
 </nav>
 
   
