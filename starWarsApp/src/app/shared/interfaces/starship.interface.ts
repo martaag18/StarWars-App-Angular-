@@ -17,6 +17,7 @@ export interface Starship {
     pilots: [];
     starship_class: string;
     url: string;
+    id: string;
 }
     
     
