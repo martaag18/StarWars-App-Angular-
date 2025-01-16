@@ -48,3 +48,6 @@ Thumbs.db
 # Tailwind CSS
 postcss.config.js
 tailwind.config.js
+
+# Archivos MAP
+*.map

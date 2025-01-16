@@ -1,35 +1,45 @@
-<div class="container p-4 mx-auto ">
-    @if (starship) {
-      <div class="flex">
-          <div class="card shadow-xl border border-neutral-600 text-neutral-100 p-4">
-            <div class="card-body">
-              <h1 class="card-title">{{ starship.name }}</h1>
-              <h3>Model: {{ starship.model }}</h3>
-              <h3>Passengers: {{ starship.passengers }}</h3>
-              <h3>Crew: {{ starship.crew}}</h3>
-              <h3>Created: {{ starship.created }}</h3>
-              <h3>Manufacturer: {{ starship.manufacturer }}</h3>
-              <h3>Max Speed: {{ starship.max_atmosphering_speed}}</h3>
-              <h2>Films:</h2>
-
-              @for (film of starship.films; track $index){
-                <h3>{{film}}</h3>
-              }
-              <h2>Pilots:</h2>
-              @if(starship.pilots){
-                @for(pilot of starship.pilots; track $index){
-                    <h3>{{pilot}}</h3>
-
+<div class="w-full h-screen bg-gradient-to-r from-gray-900 via-gray-700 to-black">
+    @if(starship) {
+      <div class="flex justify-end p-10">
+        <div class="card card-details  border border-dashed border-neutral-600 text-neutral-100 hover:border-primary p-4">
+          <div class="card-body">
+            <h1 class="card-title">{{ starship.name }}</h1>
+            
+            <!-- Grid with two columns for md/lg screens -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- First column: General Information -->
+              <div>
+                <h3 class="hover:text-primary cursor-pointer"><b>Model:</b> {{ starship.model }}</h3>
+                <h3 class="hover:text-primary cursor-pointer" ><b>Passengers: </b>{{ starship.passengers }}</h3>
+                <h3 class="hover:text-primary cursor-pointer"><b>Crew:</b> {{ starship.crew }}</h3>
+                <h3 class="hover:text-primary cursor-pointer"><b>Created: </b>{{ starship.created }}</h3>
+                <h3 class="hover:text-primary cursor-pointer"><b>Manufacturer: </b>{{ starship.manufacturer }}</h3>
+                <h3 class="hover:text-primary cursor-pointer"><b>Max Speed: </b>{{ starship.max_atmosphering_speed }}</h3>
+              </div>
+  
+              <!-- Second column: Films and Pilots -->
+              <div>
+                <h2 class="hover:text-primary cursor-pointer"><b>Films:</b></h2>
+                @for(film of starship.films; track $index){
+                  <h3 class="hover:text-primary cursor-pointer">{{ film }}</h3>
                 }
-              }@else{
-                <h3>Any pilot to show</h3>
-              }
+                <h2 class="hover:text-primary cursor-pointer"><b>Pilots:</b></h2>
+                @if(starship.pilots.length > 0) {
+                  @for(pilot of starship.pilots; track $index){
+                      <h3 class="hover:text-primary cursor-pointer">{{ pilot }}</h3>
+                  }
+                } @else {
+                  <p>Sorry, there are no pilots to show</p>
+                }
+              </div>
             </div>
           </div>
+        </div>
       </div>
     } @else {
       <h3>Sorry, we couldn't get the details</h3>
     }
   </div>
+  
   
 

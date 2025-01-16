@@ -22,6 +22,7 @@ export class StarshipsDetailComponent {
     const id = this.route.snapshot.paramMap.get('id')!;
     this.starshipService.getStarShipsById(id).subscribe({
       next: (data) => {
+        data.name = data.name.toUpperCase(); 
         this.starship = data;
         console.log(data);
       },

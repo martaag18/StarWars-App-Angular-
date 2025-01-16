@@ -18,7 +18,8 @@ export class StarshipService {
       map(response => {
         response.results = response.results.map((starship: Starship) => { 
           const id = starship.url.split("/")[5]; // Extraer id de la URL
-          return {...starship, id}; // Añadir 'id' al objeto
+          const updatedStarship = {...starship, name: starship.name.toUpperCase(), id};
+          return {...updatedStarship, id}; // Añadir 'id' al objeto
         });
         return response; 
       })

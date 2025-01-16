@@ -1,9 +1,10 @@
-<div class="container p-4 mx-auto">
-    @if (starships.length>0){
-        <ul>
-          <li>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              @for (starship of starships; track $index){
+<div class="w-full h-screen overflow-x-hidden bg-gradient-to-r from-gray-900 via-gray-700 to-black">
+  <div class="flex items-center justify-center mt-5">
+    @if (starships.length > 0){
+      <ul>
+        <li>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @for (starship of starships; track $index){
               <div class="card shadow-xl border border-neutral-600 text-neutral-100 p-4 hover:border-primary ">
                 <div class="card-body">
                   <h3 class="card-title">{{ starship.name }}</h3>
@@ -11,13 +12,14 @@
                   <button class="btn-sm p-1 hover:border border-primary rounded-md" [routerLink]="['/starships-detail', starship.id]">See details</button>
                 </div>
               </div>
-              }
-            </div>
-          </li>
-        </ul>
-        } @else {
-        <h3>Sorry, we didn't find any starship</h3>
-        }
+            }
+          </div>
+        </li>
+      </ul>
+    } @else {
+      <h3>Sorry, we didn't find any starship</h3>
+    }
+  </div>
 </div>
 
 
