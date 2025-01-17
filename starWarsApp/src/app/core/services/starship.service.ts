@@ -13,8 +13,10 @@ export class StarshipService {
   private httpClient = inject(HttpClient);
   private apiUrl = "https://swapi.dev/api/starships/"
 
-  getStarShips(currentPage: number): Observable<StarshipApiResponse> { 
-    return this.httpClient.get<StarshipApiResponse>(`${this.apiUrl}?page=${currentPage}`).pipe(
+
+  getStarships(page: number): Observable<StarshipApiResponse> {
+    const url = `${this.apiUrl}?page=${page}`;
+    return this.httpClient.get<StarshipApiResponse>(url).pipe(
       map(response => {
         response.results = response.results.map((starship: Starship) => { 
           const id = starship.url.split("/")[5]; // Extraer id de la URL

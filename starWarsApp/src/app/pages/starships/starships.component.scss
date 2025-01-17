@@ -1,5 +1,17 @@
-
-.container {
-    background-image: linear-gradient(to bottom, #000000, #4B4B4B);
-
-}
+.card {
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+  
+  .w-full {
+    max-width: 100%;
+  }
+  
+  .text-primary {
+    color: yellow; // Si quieres usar color amarillo para el texto
+  }
+  

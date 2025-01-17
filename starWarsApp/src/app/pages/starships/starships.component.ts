@@ -4,6 +4,7 @@ import { inject } from '@angular/core';
 import { Starship } from '../../shared/interfaces/starship.interface';
 import { RouterLink } from '@angular/router';
 
+
 @Component({
   selector: 'app-starships',
   imports: [RouterLink],
@@ -13,7 +14,7 @@ import { RouterLink } from '@angular/router';
 export class StarshipsComponent {
 
   private starshipService = inject(StarshipService)
-
+  private itemsInMemory = [];
   starships: Starship[] = [];
   currentPage: number = 1;
 
@@ -22,7 +23,7 @@ export class StarshipsComponent {
   }
 
   loadStarships(currentPage: number): void { //2.Ejecutamos método para obtejer respuesta API
-    this.starshipService.getStarShips(currentPage).subscribe({
+    this.starshipService.getStarships(currentPage).subscribe({
       next: (data) => {
         this.starships = data.results; //Obtenemos respuesta
         console.log(data);
@@ -32,5 +33,6 @@ export class StarshipsComponent {
       }
     })
   }
+  
 }
 
