@@ -1,38 +1,68 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { StarshipService } from '../../core/services/starship.service';
 import { inject } from '@angular/core';
 import { Starship } from '../../shared/interfaces/starship.interface';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 
 @Component({
   selector: 'app-starships',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule, MatProgressBarModule],
   templateUrl: './starships.component.html',
   styleUrl: './starships.component.scss'
 })
 export class StarshipsComponent {
 
   private starshipService = inject(StarshipService)
-  private itemsInMemory = [];
   starships: Starship[] = [];
   currentPage: number = 1;
+  totalItems = 36; 
+  isLoading = false;
+  allDataLoaded = false; 
+
 
   ngOnInit(): void {
-    this.loadStarships(this.currentPage); //1.Llamamos a la API para obtener las naves
+    this.loadStarships(); 
   }
 
-  loadStarships(currentPage: number): void { //2.Ejecutamos método para obtejer respuesta API
-    this.starshipService.getStarships(currentPage).subscribe({
+  loadStarships(): void {
+    console.log('Loading starships for page:', this.currentPage);
+    this.starshipService.getStarships(this.currentPage).subscribe({
       next: (data) => {
-        this.starships = data.results; //Obtenemos respuesta
-        console.log(data);
+        this.starships = [...this.starships, ...data.results]; 
+        console.log('Updated starships:', this.starships);
+
+        if (this.starships.length >= this.totalItems) {
+          this.allDataLoaded = true;
+        }
       },
       error: (err) => {
-        console.log('Error getting starships from API', err);
+        console.log('Error loading starships:', err);
       }
-    })
+    });
   }
-  
+
+  onScroll(event: any): void {
+    const bottom = event.target.scrollHeight === event.target.scrollTop + event.target.clientHeight;
+    console.log("Scroll detected");
+    if (bottom && !this.isLoading) {
+      this.isLoading = true;
+      this.appendData(); 
+    }
+  }
+
+  appendData(): void {
+    if (this.starships.length < this.totalItems) {
+      this.currentPage++; 
+      this.loadStarships(); 
+    }
+  }
 }
+
+//scrollHeight - altura total del contenido desplazable (incluidas partes no visibles fuera del scroll)
+//scrollTop - distancia desplazada desde parte superior hasta posición actual scroll
+//altura visible del contenedor (sin incluir partes desplazadas)
 
