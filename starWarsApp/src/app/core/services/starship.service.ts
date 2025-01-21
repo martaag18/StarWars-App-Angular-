@@ -40,4 +40,8 @@ export class StarshipService {
   getPilotDataById(url: string): Observable<any> {
     return this.httpClient.get<any>(url);
   }
+
+  getFilmDataById(url: string): Observable<any> {
+    return this.httpClient.get<any>(url);
+  }
 }

@@ -4,10 +4,11 @@ import { StarshipService } from '../../../core/services/starship.service';
 import { inject } from '@angular/core';
 import { Starship } from '../../../shared/interfaces/starship.interface';
 import { PilotsComponent } from './pilots/pilots.component';
+import { FilmsComponent } from './films/films.component';
 
 @Component({
   selector: 'app-starships-detail',
-  imports: [PilotsComponent],
+  imports: [PilotsComponent, FilmsComponent],
   templateUrl: './starships-detail.component.html',
   styleUrl: './starships-detail.component.scss'
 })

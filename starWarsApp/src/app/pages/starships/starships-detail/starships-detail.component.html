@@ -55,7 +55,7 @@
     <div>
       <h2 class="text-white text-start text-3xl font-bold mb-10 mt-10 border-b border-gray-500 pb-2">FILMS</h2>
       @if (starship.films.length > 0){
-        
+        <app-films [filmsUrls]="starship.films"></app-films>
       }
     </div>
   </div>
