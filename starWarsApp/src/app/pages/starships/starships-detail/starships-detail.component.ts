@@ -18,6 +18,8 @@ export class StarshipsDetailComponent {
   private starshipService = inject(StarshipService);
 
   starship: Starship | undefined;
+  isDefaultImage = false;
+
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')!;
@@ -32,5 +34,12 @@ export class StarshipsDetailComponent {
         console.error("Not able to show details", err);
       }
     })
+  }
+
+  setDefaultImage(): void {
+    if(this.starship){
+      this.starship.imageUrl = "assets/images/default-starship.jpg"
+      this.isDefaultImage = true;
+    }
   }
 }

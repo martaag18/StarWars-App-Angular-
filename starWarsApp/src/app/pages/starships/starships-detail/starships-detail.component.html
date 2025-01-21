@@ -11,9 +11,16 @@
     
     <div class="flex items-center justify-end p-10">
       <!-- Image Starship -->
-      <div class="me-4 border">
-        <img [src]="starship.imageUrl" alt="Starship Image">              
-      </div>
+      <div class="flex flex-col">
+        <div class="me-4 border">
+          <img [src]="starship.imageUrl" alt="Starship Image" (error)="setDefaultImage()">            
+        </div>
+        <div>
+          @if(isDefaultImage){
+            <p class="text-white">Default image - We couldn't load the original one from the API.</p>
+          }  
+        </div>
+      </div> 
       <!-- Starship Details Card -->
       <div class="card card-details border border-dashed border-neutral-600 text-neutral-100 hover:border-primary p-4">
         <div class="card-body">
