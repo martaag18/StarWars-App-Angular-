@@ -25,6 +25,7 @@ export class StarshipsDetailComponent {
       next: (data) => {
         data.name = data.name.toUpperCase(); 
         this.starship = data;
+        this.starship.imageUrl = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
         console.log("Details starshipw", data);
       },
       error: (err) => {
@@ -32,6 +33,4 @@ export class StarshipsDetailComponent {
       }
     })
   }
-
- 
 }
