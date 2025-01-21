@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { StarshipService } from '../../../../core/services/starship.service';
 import { inject } from '@angular/core';
+import { Pilot } from '../../../../shared/interfaces/pilot.interface';
 
 @Component({
   selector: 'app-pilots',
@@ -14,7 +15,7 @@ export class PilotsComponent {
 starshipService = inject(StarshipService)
 
 @Input() pilotUrls: string[] = []; //Recibimos del componente padre array pilotos
-pilots: any[] = []; 
+pilots: Pilot[] = []; 
 
 ngOnInit(): void {
   this.loadPilots(); 

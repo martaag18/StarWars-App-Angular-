@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { inject } from '@angular/core';
 import { StarshipService } from '../../../../core/services/starship.service';
+import { Film } from '../../../../shared/interfaces/film.interface';
 
 @Component({
   selector: 'app-films',
@@ -13,7 +14,7 @@ export class FilmsComponent {
 starshipService = inject(StarshipService)
 
 @Input() filmsUrls: string[] = []; 
-films: any[] = []; 
+films: Film[] = []; 
 
 
 ngOnInit(): void {
