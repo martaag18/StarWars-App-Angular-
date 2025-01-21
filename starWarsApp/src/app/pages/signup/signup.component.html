@@ -1,3 +1,4 @@
+
 <!-- Header -->
 <div class="flex flex-col justify-center">
     <!-- Logo -->
@@ -10,47 +11,114 @@
   
   <!-- Main -->
   
-  <div class="flex flex-col mt-10">
-    <div class="flex justify-end me-10">
+  <div class="flex flex-col">
+    <div class="flex justify-end me-10 mt-10">
       <a routerLink="/" class="btn btn-circle btn-primary">
         ✖
       </a>
     </div>
-    <div class="flex justify-center">
-      <div class="card bg-white w-full max-w-[520px] md:max-w-[620px] p-6 lg:p-8 rounded-3xl shadow-xl">
-        <div class="flex justify-start mb-6">
-          <img src="/assets/images/mydisneylogo.png" alt="My Disney" class="h-8">
-        </div>
-        <h2 class="text-2xl font-bold mb-4 text-left">Enter your details to register</h2>
-    
-        <label class="block w-full mb-4">
-          <input
-            type="text"
-            placeholder="Email"
-            class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
-          />
-        </label>
-        <label class="block w-full mb-4">
-            <input
-              type="password"
-              placeholder="Password"
-              class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
-            />
-        </label>
-        <label class="block w-full mb-4">
-            <input
-              type="password"
-              placeholder="Repeat Password"
-              class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
-            />
-        </label>
-    
-        <button class="btn bg-yellow-500 hover:bg-yellow-400 text-black font-bold w-full h-12 rounded-full mb-6">
-          Sign Up Now!
-        </button>
-    
+    <!-- Form -->
+    <form [formGroup] = "registerForm" (ngSubmit) = "submitRegister()">
+        <div class="flex justify-center mb-10">
+            <div class="card bg-white w-full max-w-[520px] md:max-w-[620px] p-6 lg:p-8 rounded-3xl shadow-xl">
+              <div class="flex justify-start mb-6">
+                <img src="/assets/images/mydisneylogo.png" alt="My Disney" class="h-8">
+              </div>
+              <h2 class="text-2xl font-bold mb-4 text-left">Enter your details to register:</h2>
+      
+              <label class="block w-full mb-4">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  formControlName="name" 
+                  class="form-control" 
+                  class="input input-bordered h-12 px-4 text-base bg-gray-100 rounded-md"
+                />
+                @if(registerForm.get('name')?.invalid && registerForm.get('name')?.touched){
+                    <div class="error-messages">
+                        @if (registerForm.get('name')?.errors?.['required']) {
+                          <span class="text-red-600 font-bold">Must be a name</span>
+                        }
+                    </div>
+                }
+            </label>
+              <label class="block w-full mb-4">
+                <input
+                    type="text"
+                    placeholder="Surname"
+                    formControlName="surname" 
+                    class="form-control" 
+                    class="input input-bordered h-12 px-4 text-base bg-gray-100 rounded-md"
+                />
+                @if(registerForm.get('surname')?.invalid && registerForm.get('surname')?.touched){
+                    <div class="error-messages">
+                        @if (registerForm.get('surname')?.errors?.['required']) {
+                          <span class="text-red-600 font-bold">Must be a surname</span>
+                        }
+                    </div>
+                }
+              </label>
+              <label class="block w-full mb-4">
+                <input
+                  type="text"
+                  placeholder="Email"
+                  formControlName="email" 
+                  class="form-control" 
+                  class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
+                />
+                @if(registerForm.get('email')?.invalid && registerForm.get('email')?.touched){
+                    <div class="error-messages">
+                        @if (registerForm.get('email')?.errors?.['required']) {
+                          <span class="text-red-600 font-bold">Must be an email</span>
+                        }
+                        @if (registerForm.get('email')?.errors?.['email']){
+                            <span class="text-red-600 font-bold">Must be email format</span> 
+                        }
+                    </div>
+                }
+              </label>
+              <label class="block w-full mb-4">
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    formControlName="password" 
+                    class="form-control" 
+                    class="input input-bordered h-12 px-4 text-base bg-gray-100 rounded-md"
+                  />
+                @if(registerForm.get('password')?.invalid && registerForm.get('password')?.touched){
+                    <div class="error-messages">
+                        @if (registerForm.get('password')?.errors?.['required']) {
+                          <span class="text-red-600 font-bold">Must be a password</span>
+                        }
+                    </div>
+                }
+              </label>
+              <label class="block w-full mb-4">
+                  <input
+                    type="password"
+                    placeholder="Repeat Password"
+                    formControlName="repeatPassword" 
+                    class="form-control" 
+                    class="input input-bordered h-12 px-4 text-base bg-gray-100 rounded-md"
+                />
+                @if(registerForm.get('password')?.invalid && registerForm.get('password')?.touched){
+                    <div class="error-messages">
+                        @if (registerForm.get('password')?.errors?.['required']) {
+                          <span class="text-red-600 font-bold">Must be a password</span>
+                        }
+                    </div>
+                }
 
-      </div>
-    </div>
+              </label>
+          
+              <button type="submit" class="btn bg-yellow-500 hover:bg-yellow-400 text-black font-bold w-full h-12 rounded-full mb-6">
+                Sign Up Now!
+              </button>
+          
+      
+            </div>
+          </div>
+    </form>
+
     
   </div>
