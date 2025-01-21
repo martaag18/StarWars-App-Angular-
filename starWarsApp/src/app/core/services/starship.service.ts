@@ -36,4 +36,8 @@ export class StarshipService {
   getPilotData(url: string): Observable<any> {
     return this.httpClient.get<any>(url); 
   }
+
+  getPilotDataById(url: string): Observable<any> {
+    return this.httpClient.get<any>(url);
+  }
 }

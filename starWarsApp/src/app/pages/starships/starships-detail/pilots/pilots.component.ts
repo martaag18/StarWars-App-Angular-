@@ -20,19 +20,28 @@ ngOnInit(): void {
   this.loadPilots(); 
 }
 
-private loadPilots(){
-  this.pilotUrls.forEach((url) => { //Iteramos pilotUrls para llamar al servicio en cada una de ellas. 
-    this.starshipService.getPilotData(url).subscribe({
-      next: (data) => {
-        this.pilots.push(data);
-        console.log("Pilots", data);
+loadPilots(): void {
+  this.pilotUrls.forEach((url) => {
+    this.starshipService.getPilotDataById(url).subscribe({
+      next: (pilot) => {
+        const pilotId = this.extractIdFromUrl(url);
+        pilot.imageUrl = `https://starwars-visualguide.com/assets/img/characters/${pilotId}.jpg`;
+        this.pilots.push(pilot);
       },
       error: (err) => {
-        console.log("Not able to show pilots", err)
-      }
-    })
-  })
+        console.error(`Failed to fetch data for pilot at ${url}:`, err);
+      },
+    });
+  });
 }
+
+  // Extrae el ID del piloto desde la URL
+  private extractIdFromUrl(url: string): string {
+    const parts = url.split('/');
+    return parts[parts.length - 2]; // El ID está justo antes del último '/'
+  }
+
 }
+
 
 
