@@ -1,0 +1,26 @@
+<div class="w-full px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-white">
+    @if(pilots) {
+        @for(pilot of pilots; track $index) {
+            <div class="card bg-base-100 shadow-xl hover:scale-105 transform transition-all duration-300">
+                <figure>
+                    <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Pilot Image"
+                        class="w-full object-cover rounded-t-lg" />
+                </figure>
+                <div class="card-body p-4">
+                    <h2 class="card-title text-lg font-bold text-black mb-2">Name: {{ pilot.name }}</h2>
+                    <p class="text-sm text-gray-400 mb-1"><b>Gender:</b> {{ pilot.gender }}</p>
+                    <p class="text-sm text-gray-400 mb-1"><b>Height:</b> {{ pilot.height }} cm</p>
+                    <p class="text-sm text-gray-400"><b>Birth Year:</b> {{ pilot.birth_year }}</p>
+                </div>
+            </div>
+        }
+    } @else {
+    }
+  </div>
+  
+  
+
+
+

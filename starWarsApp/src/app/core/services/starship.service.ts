@@ -32,4 +32,8 @@ export class StarshipService {
     return this.httpClient.get<Starship>(`https://swapi.dev/api/starships/${id}/`);
 
   }
+
+  getPilotData(url: string): Observable<any> {
+    return this.httpClient.get<any>(url); 
+  }
 }
