@@ -1,1 +1,56 @@
-<p>signup works!</p>
+<!-- Header -->
+<div class="flex flex-col justify-center">
+    <!-- Logo -->
+    <div class="header w-full bg-black py-4">
+      <div class="flex justify-center">
+        <app-logo></app-logo>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main -->
+  
+  <div class="flex flex-col mt-10">
+    <div class="flex justify-end me-10">
+      <a routerLink="/" class="btn btn-circle btn-primary">
+        ✖
+      </a>
+    </div>
+    <div class="flex justify-center">
+      <div class="card bg-white w-full max-w-[520px] md:max-w-[620px] p-6 lg:p-8 rounded-3xl shadow-xl">
+        <div class="flex justify-start mb-6">
+          <img src="/assets/images/mydisneylogo.png" alt="My Disney" class="h-8">
+        </div>
+        <h2 class="text-2xl font-bold mb-4 text-left">Enter your details to register</h2>
+    
+        <label class="block w-full mb-4">
+          <input
+            type="text"
+            placeholder="Email"
+            class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
+          />
+        </label>
+        <label class="block w-full mb-4">
+            <input
+              type="password"
+              placeholder="Password"
+              class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
+            />
+        </label>
+        <label class="block w-full mb-4">
+            <input
+              type="password"
+              placeholder="Repeat Password"
+              class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
+            />
+        </label>
+    
+        <button class="btn bg-yellow-500 hover:bg-yellow-400 text-black font-bold w-full h-12 rounded-full mb-6">
+          Sign Up Now!
+        </button>
+    
+
+      </div>
+    </div>
+    
+  </div>

@@ -10,36 +10,44 @@
 
 <!-- Main -->
 
-<div class="flex flex-col items-center mt-10">
-  <div class="carg bg-white w-full max-w-[520px] md:max-w-[620px] p-6 lg:p-8 rounded-3xl shadow-xl">
-    <div class="flex justify-start mb-6">
-      <img src="/assets/images/mydisneylogo.png" alt="My Disney" class="h-8">
-    </div>
-    <h2 class="text-2xl font-bold mb-4 text-left">Enter your email to continue</h2>
-    <p class="text-gray-600 mb-6 text-left">
-      Log in to Star Wars with your MyDisney account. If you don't have one, you will be prompted to create one.
-    </p>
-
-    <label class="block w-full mb-4">
-      <input
-        type="text"
-        placeholder="Email"
-        class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
-      />
-    </label>
-
-    <button class="btn bg-yellow-500 hover:bg-yellow-400 text-black font-bold w-full h-12 rounded-full mb-6">
-      Continue
-    </button>
-    <hr class="border-gray-300 mb-6">
-
-    <div class="text-center text-gray-600 text-sm space-y-4">
-      <p><strong>Star Wars is part of The Walt Disney Family of Companies.</strong></p>
-      <p>
-        MyDisney lets you seamlessly log in to services and experiences across The Walt Disney Family of Companies, such as Disney+, ESPN, Walt Disney World, and <a class="link text-blue-400 pointer" ahref="#">more</a>.
+<div class="flex flex-col mt-10">
+  <div class="flex justify-end me-10">
+    <a routerLink="/" class="btn btn-circle btn-primary">
+      ✖
+    </a>
+  </div>
+  <div class="flex justify-center">
+    <div class="card bg-white w-full max-w-[520px] md:max-w-[620px] p-6 lg:p-8 rounded-3xl shadow-xl">
+      <div class="flex justify-start mb-6">
+        <img src="/assets/images/mydisneylogo.png" alt="My Disney" class="h-8">
+      </div>
+      <h2 class="text-2xl font-bold mb-4 text-left">Enter your email to continue</h2>
+      <p class="text-gray-600 mb-6 text-left">
+        Log in to Star Wars with your MyDisney account. If you don't have one, you will be prompted to create one.
       </p>
+  
+      <label class="block w-full mb-4">
+        <input
+          type="text"
+          placeholder="Email"
+          class="input input-bordered w-full h-12 px-4 text-base bg-gray-100 rounded-md"
+        />
+      </label>
+  
+      <button class="btn bg-yellow-500 hover:bg-yellow-400 text-black font-bold w-full h-12 rounded-full mb-6">
+        Continue
+      </button>
+      <hr class="border-gray-300 mb-6">
+  
+      <div class="text-cleft text-gray-600 text-sm space-y-4">
+        <p><strong>Star Wars is part of The Walt Disney Family of Companies.</strong></p>
+        <p>
+          MyDisney lets you seamlessly log in to services and experiences across The Walt Disney Family of Companies, such as Disney+, ESPN, Walt Disney World, and <a class="link text-blue-400 pointer font-bold" ahref="#">more</a>.
+        </p>
+      </div>
     </div>
   </div>
+  
 </div>
 
 
