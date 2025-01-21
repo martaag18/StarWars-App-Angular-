@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { StarshipService } from '../../../../core/services/starship.service';
 import { inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-pilots',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './pilots.component.html',
   styleUrl: './pilots.component.scss'
 })
@@ -14,19 +13,19 @@ export class PilotsComponent {
 
 starshipService = inject(StarshipService)
 
-@Input() pilotUrls: string[] = [];
-pilots: any[] = []; // Almacena los datos de los pilotos
+@Input() pilotUrls: string[] = []; //Recibimos del componente padre array pilotos
+pilots: any[] = []; 
 
 ngOnInit(): void {
-  this.loadPilots(); // Cargar los datos de los pilotos al iniciar el componente
+  this.loadPilots(); 
 }
 
 private loadPilots(){
-  this.pilotUrls.forEach((url) => {
+  this.pilotUrls.forEach((url) => { //Iteramos pilotUrls para llamar al servicio en cada una de ellas. 
     this.starshipService.getPilotData(url).subscribe({
       next: (data) => {
         this.pilots.push(data);
-        console.log(data);
+        console.log("Pilots", data);
       },
       error: (err) => {
         console.log("Not able to show pilots", err)

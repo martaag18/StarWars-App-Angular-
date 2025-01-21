@@ -3,12 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { StarshipService } from '../../../core/services/starship.service';
 import { inject } from '@angular/core';
 import { Starship } from '../../../shared/interfaces/starship.interface';
-import { CommonModule } from '@angular/common';
 import { PilotsComponent } from './pilots/pilots.component';
 
 @Component({
   selector: 'app-starships-detail',
-  imports: [CommonModule, PilotsComponent],
+  imports: [PilotsComponent],
   templateUrl: './starships-detail.component.html',
   styleUrl: './starships-detail.component.scss'
 })
@@ -25,7 +24,7 @@ export class StarshipsDetailComponent {
       next: (data) => {
         data.name = data.name.toUpperCase(); 
         this.starship = data;
-        console.log(data);
+        console.log("Details starshipw", data);
       },
       error: (err) => {
         console.error("Not able to show details", err);

@@ -1,16 +1,15 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { StarshipService } from '../../core/services/starship.service';
 import { inject } from '@angular/core';
 import { Starship } from '../../shared/interfaces/starship.interface';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
 @Component({
   selector: 'app-starships',
-  imports: [RouterLink, CommonModule, MatProgressBarModule],
+  imports: [RouterLink, MatProgressBarModule],
   templateUrl: './starships.component.html',
   styleUrl: './starships.component.scss'
 })
