@@ -6,7 +6,7 @@ import { StarshipsComponent } from './pages/starships/starships.component';
 import { StarshipsDetailComponent } from './pages/starships/starships-detail/starships-detail.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { authGuardGuard } from './core/guards/auth.guard';
+import { AuthGuardGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
 
@@ -14,8 +14,8 @@ export const routes: Routes = [
     component: MainLayoutComponent, //Layout con navbar y footer
     children: [
         {path: "", component: HomeComponent},
-        { path: "starships", component: StarshipsComponent, canActivate: [authGuardGuard]},
-        { path: "starships-detail/:id", component: StarshipsDetailComponent, canActivate: [authGuardGuard]}
+        { path: "starships", component: StarshipsComponent, canActivate: [AuthGuardGuard]},
+        { path: "starships-detail/:id", component: StarshipsDetailComponent, canActivate: [AuthGuardGuard]}
     ]
      }, 
     { path: "",

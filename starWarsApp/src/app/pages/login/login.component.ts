@@ -14,7 +14,7 @@ import { LogoComponent } from '../../shared/logo/logo.component';
 })
 export class LoginComponent {
 
-  loginService = inject(LoginService); 
+  private loginService = inject(LoginService); 
   private route = inject(ActivatedRoute); 
   private router = inject(Router); 
 

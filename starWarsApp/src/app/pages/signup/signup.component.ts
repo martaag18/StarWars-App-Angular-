@@ -14,7 +14,7 @@ import { inject } from '@angular/core';
 })
 export class SignupComponent {
 
-  authService = inject(AuthService);
+  private authService = inject(AuthService);
 
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required]),

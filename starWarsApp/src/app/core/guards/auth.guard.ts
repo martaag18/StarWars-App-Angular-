@@ -1,30 +1,40 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Auth, User } from '@angular/fire/auth';
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
 
-export const authGuardGuard: CanActivateFn = (
-  route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot
-): Observable<boolean> => {
-  const auth = inject(Auth);
-  const router = inject(Router);
+@Injectable({
+  providedIn: 'root', 
+})
+export class AuthGuardGuard implements CanActivate {
 
-  return new Observable<boolean>((observer) => {
-    const unsubscribe = auth.onAuthStateChanged((user: User | null) => {
-      if (user) {
-        observer.next(true); 
-        observer.complete(); 
-      } else {
-        router.navigate(['/login'], { queryParams: { returnUrl: state.url } }); 
-        observer.next(false); 
-        observer.complete(); 
-      }
+  private auth = inject(Auth);
+  private router = inject(Router);
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> {
+    return new Observable<boolean>((observer) => {
+
+      const unsubscribe = this.auth.onAuthStateChanged((user) => {
+        if (user) {
+          observer.next(true); 
+          observer.complete();
+        } else {
+          this.router.navigate(['/login'], 
+          { queryParams: { returnUrl: state.url } }); 
+          observer.next(false); 
+          observer.complete();
+        }
+      });
+      
+      return () => unsubscribe();
     });
+  }
+}
 
-    return () => unsubscribe(); //auth.onAuthStateChanged devuelve una función de tipo Unsubscribe --> llamar para detener listener /creado en onAuthStateChanged de Firebase que escucha cambios autenticacion)
-  });
-};
 
 
 
