@@ -41,6 +41,7 @@ export class LoginService {
       this.token = null; 
       this.cookies.delete('token'); 
       console.log('Log out successful');
+      this.router.navigate(["/"]); 
     });
   }
 }

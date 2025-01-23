@@ -1,4 +1,4 @@
-<div class="w-full h-screen overflow-y-auto bg-gradient-to-r from-gray-900 via-gray-700 to-black" (scroll)="onScroll($event)">
+<div class="w-full h-screen overflow-y-auto bg-gradient-to-r from-gray-900 via-gray-700 to-black" infiniteScroll (scrolled)="onScroll()" [infiniteScrollDistance]="0.5" [infiniteScrollThrottle]="500">
   @for(starship of starships; track $index){
     <ul>
       <li>
@@ -13,7 +13,7 @@
     </ul>
   }
   <div class="m-8">
-    @defer(when allDataLoaded) {
+    @defer(when !hasMoreData) {
       <p class="text-primary">No more starships to load</p>
     }
     @loading (after 2000ms; minimum 4s) {
