@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from '../../core/services/login.service';
+import { LoginService } from '../../../core/services/login.service';
 import { inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { LogoComponent } from '../../shared/logo/logo.component';
+import { LogoComponent } from '../../../shared/logo/logo.component';
 
 @Component({
   selector: 'app-login',

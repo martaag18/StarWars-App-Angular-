@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../core/services/auth.service';
-import { AppUser } from '../../shared/interfaces/user.interface';
-import { LogoComponent } from '../../shared/logo/logo.component';
+import { AuthService } from '../../../core/services/auth.service';
+import { AppUser } from '../../../shared/interfaces/user.interface';
+import { LogoComponent } from '../../../shared/logo/logo.component';
 import { inject } from '@angular/core';
 
 @Component({
