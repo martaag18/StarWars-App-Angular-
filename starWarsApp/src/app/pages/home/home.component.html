@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-container mx-auto">
 
   <!-- Audio -->
   <audio id="themeAudio" src="assets/audio/starwars.mp3" autoplay muted></audio>
@@ -14,11 +14,14 @@
       </div>
     </section>
   </div>
-  <div class="flex justify-center items-center space-x-4">
-    <img src="assets/gif/skeletonCrew.gif" alt="Skeleton Crew GIF" class="h-[30vh] w-auto">
-    <img src="assets/gif/babyYoda.gif" alt="Baby Yoda GIF" class="h-[30vh] w-auto">
-    <img src="assets/gif/skeletonCrew1.gif" alt="Skeleton Crew GIF" class="h-[30vh] w-auto">
-  </div>
+  <section>
+    <div class="flex flex-col md:flex-row justify-center items-center space-x-4 overflow-hidden">
+      <img src="assets/gif/skeletonCrew.gif" alt="Skeleton Crew GIF" class="h-[20vh]  lg:h-[28vh] w-auto object-contain">
+      <img src="assets/gif/babyYoda.gif" alt="Baby Yoda GIF" class="h-[20vh] lg:h-[28vh] w-auto object-contain">
+      <img src="assets/gif/skeletonCrew1.gif" alt="Skeleton Crew GIF" class="h-[20vh] lg:h-[28vh] w-auto object-contain">
+    </div>
+  </section>
+
 
   <!-- Spaceships -->
   <div class="flex justify-center items-center text-center p-6">
@@ -114,3 +117,5 @@
     </section>
   </div>
 </div>
+
+

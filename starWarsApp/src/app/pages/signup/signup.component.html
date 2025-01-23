@@ -10,7 +10,16 @@
   </div>
   
   <!-- Main -->
+  <div class="flex justify-center text-center mt-10">
+    @if(errorMessage){
+      <h1 class="text-red-600 text-2xl font-bold bg-slate-100">{{errorMessage}}</h1>
+    }@else {
+      <h1 class="text-black text-2xl font-bold bg-white">{{successMessage}}</h1>
   
+    }  
+  </div>
+
+
   <div class="flex flex-col">
     <div class="flex justify-end me-10 mt-10">
       <a routerLink="/" class="btn btn-circle btn-primary">
