@@ -38,7 +38,7 @@ loadFilms(): void {
 }
 
   // Extrae el ID del Film desde la URL (recibida desde componente padre)
-  private extractIdFromUrl(url: string): string {
+  extractIdFromUrl(url: string): string {
     const parts = url.split('/');
     return parts[parts.length - 2];
   }
