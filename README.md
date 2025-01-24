@@ -68,7 +68,10 @@ To run this project locally, you’ll need:
 - Optionally implements **infinite scrolling** for a seamless user experience.
 
 ### Authentication:
-![login](https://github.com/user-attachments/assets/12073e01-9de1-4b88-be31-7adcb09e7620) | ![register](https://github.com/user-attachments/assets/b75a8f06-5ed8-4254-b17c-d8242f56b7a8)
+|   |   |   |
+|---|---|---|
+![login](https://github.com/user-attachments/assets/12073e01-9de1-4b88-be31-7adcb09e7620) | ![register](https://github.com/user-attachments/assets/b75a8f06-5ed8-4254-b17c-d8242f56b7a8) | ![logout](https://github.com/user-attachments/assets/26d3f446-fca0-4421-a90a-4c29d38c3fba)
+
 
 
 - Users must log in to view the list of starships.
@@ -82,7 +85,11 @@ To run this project locally, you’ll need:
 - After login, users are redirected to their originally requested route.
 
 ### Pilot and Film Information:
-![pilot](https://github.com/user-attachments/assets/1d1077aa-2bb2-4684-b759-dba7a6d30cf8) | ![film](https://github.com/user-attachments/assets/37616c26-b593-43cf-b483-3cd4494423d7)
+|   |   |
+|---|---|
+![pilot](https://github.com/user-attachments/assets/1d1077aa-2bb2-4684-b759-dba7a6d30cf8) | ![film](https://github.com/user-attachments/assets/37616c26-b593-43cf-b483-3cd4494423d7) 
+
+
 
 - Each starship detaillog page includes cards for its associated **pilots** and **films**.
 
