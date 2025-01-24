@@ -4,7 +4,7 @@ import { Auth, signInWithEmailAndPassword, signOut, UserCredential } from "@angu
 import { inject } from "@angular/core";
 import { CookieService } from "ngx-cookie-service"; //libreria para manejar cookies en Angular
 import { from, Observable, switchMap, tap } from "rxjs"; //libreria con herramientas para trabajar con programación reactiva
-
+import { LogoutService } from "./logout.service";
 @Injectable({
   providedIn: 'root',
 })
@@ -12,8 +12,8 @@ export class LoginService {
   private auth = inject(Auth);
   private router = inject(Router);
   private cookies = inject(CookieService);
+  private logoutService = inject(LogoutService)
 
-  token: string | null = null;
 
   //Log In -> Observables -> from (convertir Promise en Observable)
   login(email: string, password: string): Observable<string> {
@@ -24,7 +24,6 @@ export class LoginService {
 
         return from(response.user.getIdToken()).pipe(
           tap((token) => { //tap -> acciones adicionales
-            this.token = token; 
             this.cookies.set("token", token); 
             console.log("Token", token);
           })
@@ -37,12 +36,7 @@ export class LoginService {
   }
 
    logout(): void {
-    signOut(this.auth).then(() => {
-      this.token = null; 
-      this.cookies.delete('token'); 
-      console.log('Log out successful');
-      this.router.navigate(["/"]); 
-    });
+    this.logoutService.logout()
   }
 }
 
