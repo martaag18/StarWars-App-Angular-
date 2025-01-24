@@ -1,0 +1,11 @@
+@charset "UTF-8";
+:host {
+  font-family: "Courier New", Courier, monospace;
+  display: block;
+  min-height: 100vh; /* Mínimo ocupa toda la pantalla */
+  width: 100%; /* Ancho completo */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/bg_StarWars.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}/*# sourceMappingURL=signup.component.css.map */
