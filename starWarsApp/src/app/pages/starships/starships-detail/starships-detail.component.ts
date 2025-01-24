@@ -22,7 +22,13 @@ export class StarshipsDetailComponent {
 
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (!id) {
+      console.error("Starship ID not found!");
+      return; // Puedes lanzar un error o manejarlo como prefieras
+    }
+    
     this.starshipService.getStarShipsById(id).subscribe({
       next: (data) => {
         data.name = data.name.toUpperCase(); 
